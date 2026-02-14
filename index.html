@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Nigarım 💖</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffb6d5, #a9d6ff);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.94);
+    border-radius: 30px;
+    padding: 40px;
+    max-width: 720px;
+    width: 92%;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    animation: fadeIn 2s ease;
+}
+
+h1 {
+    color: #ff3f8e;
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 18px;
+    color: #444;
+    line-height: 1.7;
+    margin: 12px 0;
+}
+
+.hearts {
+    font-size: 30px;
+    margin: 20px 0;
+    animation: pulse 1.4s infinite;
+}
+
+/* 📸 SLAYDER */
+.slider {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    margin: 25px 0;
+    overflow: hidden;
+    border-radius: 22px;
+}
+
+.slides {
+    display: flex;
+    width: 400%;
+    animation: slide 16s infinite;
+}
+
+.slides img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+/* ⏳ SAYĞAC */
+.counter {
+    margin: 25px 0;
+    font-size: 18px;
+    color: #555;
+}
+
+.counter span {
+    font-size: 26px;
+    font-weight: bold;
+    color: #ff3f8e;
+}
+
+/* ANİMASİYALAR */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(0); }
+    30% { transform: translateX(-100%); }
+    50% { transform: translateX(-100%); }
+    55% { transform: translateX(-200%); }
+    75% { transform: translateX(-200%); }
+    80% { transform: translateX(-300%); }
+    100% { transform: translateX(-300%); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Nigarım 💕</h1>
+
+    <p>
+        Səni sevmək həyatımın ən gözəl möcüzəsidir.
+        Gülüşünlə dünyam işıqlanır 💙
+    </p>
+
+    <!-- 📸 FOTO SLAYDER -->
+    <div class="slider">
+        <div class="slides">
+            <img src="https://picsum.photos/id/1015/720/320">
+            <img src="https://picsum.photos/id/1016/720/320">
+            <img src="https://picsum.photos/id/1018/720/320">
+            <img src="https://picsum.photos/id/1020/720/320">
+        </div>
+    </div>
+
+    <!-- ⏳ TANİŞLIQDAN BƏRİ SAYĞAC -->
+    <div class="counter">
+        💕 Tanış olduğumuz gündən bəri: <br>
+        <span id="timeTogether"></span>
+    </div>
+
+    <div class="hearts">💖 💙 💕 💖 💙</div>
+
+    <p>
+        <strong>Səni sevirəm gözəlim.</strong><br>
+        Hər zaman birlikdəyik Nigarım 🤍  
+        Bu ürək yalnız sənin üçün döyünür.
+    </p>
+
+    <p>
+        Keçmişim sən, bu günüm sən,
+        gələcəyim yenə sənsən 💫
+    </p>
+
+    <div class="hearts">💘 💞 💘</div>
+
+    <p style="color:#666;">Sonsuza qədər sən & mən 💍</p>
+</div>
+
+<!-- ⏳ SAYĞAC JS -->
+<script>
+    // 📅 TANİŞLIQ TARİXİ (DƏYİŞ)
+    const startDate = new Date("2023-06-15T00:00:00");
+
+    function updateCounter() {
+        const now = new Date();
+        let diff = now - startDate;
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        document.getElementById("timeTogether").innerHTML =
+            days + " gün 💖 " +
+            hours + " saat 💙 " +
+            minutes + " dəqiqə 💕 " +
+            seconds + " saniyə 💞";
+    }
+
+    setInterval(updateCounter, 1000);
+    updateCounter();
+</script>
+
+</body>
+  </html>
